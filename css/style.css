@@ -1,0 +1,27 @@
+section.board {
+    width: 600px;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: stretch;
+    align-items: stretch;
+}
+
+div.row {
+    box-sizing: border-box;
+    border-style: solid;
+    border-color: black;
+    border-width: 0.25px 0;
+    flex-grow: 1;
+    display: flex;
+}
+
+div.cell {
+    box-sizing: border-box;
+    border-style: solid;
+    border-color: black;
+    border-width: 0 0.25px;
+    flex-grow: 1;
+}
+
