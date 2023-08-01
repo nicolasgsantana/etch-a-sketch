@@ -2,7 +2,8 @@ let fillColor = "blue";
 let cells;
 
 const board = document.getElementById('board');
-const button = document.getElementById('change-cell-count');
+const changeCellCountBtn = document.getElementById('change-cell-count');
+const clearBtn = document.getElementById('clear');
 
 function createGrid(cellCount) {
 
@@ -40,7 +41,7 @@ function paintCell(cell, color){
     cell.style.backgroundColor = color;
 }
 
-button.addEventListener('click', () => {
+changeCellCountBtn.addEventListener('click', () => {
     cellCount = parseInt(prompt("Enter the new value (Max: 100)"));
     if(cellCount > 100){
         createGrid(100);
@@ -48,7 +49,13 @@ button.addEventListener('click', () => {
     else {
         createGrid(cellCount);
     }
-})
+});
+
+clearBtn.addEventListener('click', () => {
+    cells.forEach(cell => {
+        paintCell(cell, "#FFFFFF");
+    });
+});
 
 createGrid(16);
 
