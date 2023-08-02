@@ -3,6 +3,7 @@ let cells;
 
 const board = document.getElementById('board');
 const button = document.getElementById('change-cell-count');
+const colorInput = document.getElementById('color');
 
 function createGrid(cellCount) {
 
@@ -49,6 +50,8 @@ button.addEventListener('click', () => {
         createGrid(cellCount);
     }
 })
+
+colorInput.addEventListener('input',  () => fillColor = colorInput.value);
 
 createGrid(16);
 
