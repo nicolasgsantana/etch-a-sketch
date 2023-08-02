@@ -1,6 +1,7 @@
 section.board {
     width: 600px;
     height: 600px;
+    border: 0.25px solid black;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
