@@ -1,4 +1,4 @@
-let fillColor = "blue";
+let fillColor = "#000000";
 let cells;
 
 const board = document.getElementById('board');
@@ -35,7 +35,7 @@ function createBoard(cellCount) {
 
     cells = Array.from(document.getElementsByClassName('cell'));
     cells.forEach(cell => {
-    cell.addEventListener('mouseover', () => paintCell(cell, fillColor));
+        cell.addEventListener('mouseover', () => paintCell(cell, fillColor));
     });
 }
 
