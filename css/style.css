@@ -30,7 +30,7 @@ section.board {
   box-sizing: border-box;
   width: 600px;
   height: 600px;
-  border: 2px solid black;
+  border: 2px solid #040f0f;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -51,18 +51,18 @@ div.cell {
 }
 
 .board.grid {
-  border: 1px solid black;
+  border: 1px solid #040f0f;
 }
 
 .row.grid {
   border-style: solid;
-  border-color: black;
+  border-color: #040f0f;
   border-width: 1px 0;
 }
 
 .cell.grid {
   border-style: solid;
-  border-color: black;
+  border-color: #040f0f;
   border-width: 0 1px;
 }
 
