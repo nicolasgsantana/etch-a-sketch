@@ -1,11 +1,14 @@
-let fillColor = "blue";
+let fillColor = "#000000";
 let cells;
 
 const board = document.getElementById('board');
 const changeCellCountBtn = document.getElementById('change-cell-count');
 const clearBtn = document.getElementById('clear');
 
-function createGrid(cellCount) {
+const colorInput = document.getElementById('color');
+const gridCheckbox = document.getElementById('grid');
+
+function createBoard(cellCount) {
 
     if(board.hasChildNodes()){
         Array.from(board.childNodes).forEach(row => {
@@ -33,7 +36,7 @@ function createGrid(cellCount) {
 
     cells = Array.from(document.getElementsByClassName('cell'));
     cells.forEach(cell => {
-    cell.addEventListener('mouseover', () => paintCell(cell, fillColor));
+        cell.addEventListener('mouseover', () => paintCell(cell, fillColor));
     });
 }
 
@@ -44,10 +47,10 @@ function paintCell(cell, color){
 changeCellCountBtn.addEventListener('click', () => {
     cellCount = parseInt(prompt("Enter the new value (Max: 100)"));
     if(cellCount > 100){
-        createGrid(100);
+        createBoard(100);
     }
     else {
-        createGrid(cellCount);
+        createBoard(cellCount);
     }
 });
 
@@ -57,6 +60,18 @@ clearBtn.addEventListener('click', () => {
     });
 });
 
-createGrid(16);
+colorInput.addEventListener('input',  () => fillColor = colorInput.value);
+
+gridCheckbox.addEventListener('input', () => {
+    board.classList.toggle('grid');
+    Array.from(board.childNodes).forEach(row => {
+        Array.from(row.childNodes).forEach(cell => {
+            cell.classList.toggle('grid');
+        });
+        row.classList.toggle('grid');
+    }); 
+});
+
+createBoard(16);
 
 

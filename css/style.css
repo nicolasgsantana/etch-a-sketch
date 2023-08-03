@@ -1,6 +1,8 @@
 section.board {
+    box-sizing: border-box;
     width: 600px;
     height: 600px;
+    border: 2px solid black;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -10,18 +12,28 @@ section.board {
 
 div.row {
     box-sizing: border-box;
-    border-style: solid;
-    border-color: black;
-    border-width: 0.25px 0;
     flex-grow: 1;
     display: flex;
 }
 
 div.cell {
     box-sizing: border-box;
+    flex-grow: 1;
+}
+
+.board.grid {
+    border: 1px solid black;
+}
+
+.row.grid {
     border-style: solid;
     border-color: black;
-    border-width: 0 0.25px;
-    flex-grow: 1;
+    border-width: 1px 0;
+}
+
+.cell.grid {
+    border-style: solid;
+    border-color: black;
+    border-width: 0 1px;
 }
 
