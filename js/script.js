@@ -1,10 +1,9 @@
 let fillColor = "#000000";
-let cells;
+let cells = [];
 let rainbowActive = false;
 
 const board = document.getElementById('board');
 const clearBtn = document.getElementById('clear');
-
 const colorInput = document.getElementById('color');
 const gridCheckbox = document.getElementById('grid');
 const rainbowCheckbox = document.getElementById('rainbow');
@@ -72,13 +71,13 @@ function getRandomColor() {
     return `rgb(${red},${green},${blue})`;
 }
 
-clearBtn.addEventListener('click', () => {
+function clearBoard() {
     cells.forEach(cell => {
         paintCell(cell, "#FFFFFF");
     });
-});
+}
 
-gridCheckbox.addEventListener('input', () => {
+function toggleGrid() {
     board.classList.toggle('grid');
     Array.from(board.childNodes).forEach(row => {
         Array.from(row.childNodes).forEach(cell => {
@@ -86,23 +85,30 @@ gridCheckbox.addEventListener('input', () => {
         });
         row.classList.toggle('grid');
     }); 
-});
+}
 
-rainbowCheckbox.addEventListener('input', () =>{
+function toggleRainbow() {
     if(rainbowActive){
         rainbowActive = false;
     }
     else {
         rainbowActive = true;
     }
-});
+}
 
-cellCountRange.addEventListener('input', () => {
+function changeCellCount(){
     let cellCount = cellCountRange.value;
     createBoard(cellCount);
-    cellCountLabel.textContent = `${cellCount}x${cellCount}`
-});
+    cellCountLabel.textContent = `${cellCount}x${cellCount}`;
+}
+
+
+clearBtn.addEventListener('click', clearBoard);
+
+gridCheckbox.addEventListener('input', toggleGrid);
+
+rainbowCheckbox.addEventListener('input', toggleRainbow);
+
+cellCountRange.addEventListener('input', changeCellCount);
 
 createBoard(16);
-
-
