@@ -3,12 +3,14 @@ let cells;
 let rainbowActive = false;
 
 const board = document.getElementById('board');
-const changeCellCountBtn = document.getElementById('change-cell-count');
 const clearBtn = document.getElementById('clear');
 
 const colorInput = document.getElementById('color');
 const gridCheckbox = document.getElementById('grid');
 const rainbowCheckbox = document.getElementById('rainbow');
+const cellCountRange = document.getElementById('cell-count');
+const cellCountLabel = document.getElementById('cell-count-label');
+
 
 function createBoard(cellCount) {
 
@@ -26,9 +28,17 @@ function createBoard(cellCount) {
         const row = document.createElement('div');
         row.classList.add('row');
 
+        if(gridCheckbox.checked){
+            row.classList.add('grid')
+        }
+
         for(let j = 0; j < cellCount; j++) {
             const cell = document.createElement('div');
             cell.classList.add('cell');
+
+            if(gridCheckbox.checked){
+                cell.classList.add('grid')
+            }
 
             row.appendChild(cell);
         }
@@ -62,16 +72,6 @@ function getRandomColor() {
     return `rgb(${red},${green},${blue})`;
 }
 
-changeCellCountBtn.addEventListener('click', () => {
-    cellCount = parseInt(prompt("Enter the new value (Max: 100)"));
-    if(cellCount > 100){
-        createBoard(100);
-    }
-    else {
-        createBoard(cellCount);
-    }
-});
-
 clearBtn.addEventListener('click', () => {
     cells.forEach(cell => {
         paintCell(cell, "#FFFFFF");
@@ -95,6 +95,12 @@ rainbowCheckbox.addEventListener('input', () =>{
     else {
         rainbowActive = true;
     }
+});
+
+cellCountRange.addEventListener('input', () => {
+    let cellCount = cellCountRange.value;
+    createBoard(cellCount);
+    cellCountLabel.textContent = `${cellCount}x${cellCount}`
 });
 
 createBoard(16);
