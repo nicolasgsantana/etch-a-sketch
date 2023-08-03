@@ -86,3 +86,9 @@ footer {
   background-color: #85bdbf;
   color: #040f0f;
 }
+
+a {
+  color: #040f0f;
+  font-style: italic;
+  text-decoration: none;
+}
