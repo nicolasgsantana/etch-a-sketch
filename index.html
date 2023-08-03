@@ -8,23 +8,34 @@
     <script src="./js/script.js" defer></script>
   </head>
   <body>
-    <section class="settings">
-      <label id="cell-count-label" for="cell-count">16x16</label>
-      <input
-        type="range"
-        name="cell-count"
-        id="cell-count"
-        min="8"
-        max="64"
-        step="8"
-      />
-      <button id="clear" type="button">Clear</button>
-      <input type="color" name="pen-color" id="color" />
-      <input type="checkbox" name="grid" id="grid" />
-      <label for="grid">Grid</label>
-      <input type="checkbox" name="rainbow" id="rainbow" />
-      <label for="rainbow">Rainbow</label>
-    </section>
-    <section id="board" class="board"></section>
+    <h1>Etch a Sketch</h1>
+    <main>
+      <section class="settings">
+        <input type="color" name="pen-color" id="color" class="color" />
+        <button id="clear" type="button">Clear</button>
+        <div>
+          <label id="cell-count-label" for="cell-count">16x16</label>
+          <input
+            type="range"
+            name="cell-count"
+            id="cell-count"
+            min="8"
+            max="64"
+            step="8"
+            value="16"
+          />
+        </div>
+        <div>
+          <input type="checkbox" name="grid" id="grid" checked />
+          <label for="grid">Grid</label>
+        </div>
+        <div>
+          <input type="checkbox" name="rainbow" id="rainbow" />
+          <label for="rainbow">Rainbow</label>
+        </div>
+      </section>
+      <section id="board" class="board"></section>
+    </main>
+    <footer><p>Footer placeholder</p></footer>
   </body>
 </html>
