@@ -30,6 +30,7 @@ section.settings {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  width: 10vw;
   row-gap: 16px;
   padding: 16px;
 }
